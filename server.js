@@ -6,13 +6,13 @@ const controller = require('./controller');
 // Get port from env properties or set it a default port if not specified
 const port = process.env.PORT || 3500;
 
-// Create a http server, listening to requets on the port 
+// Create a http server, listening to requets on the port
 http.createServer(function (req, res) {
     // All requests come here first.
     console.log('Received a request...');
 
     // Verify the requested endpoint is valid
-    req.urlParts = url.parse(req.url); 
+    req.urlParts = url.parse(req.url);
     if (req.urlParts.pathname !== '/api/v1/storage') {
         // If invalid endpoint, terminate the request
         return notFound(req, res);
