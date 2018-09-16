@@ -1,9 +1,9 @@
 var request = require('request');
 
 // Make a HTTP request to fetch a resouce
-function doGET () {
+function doGET() {
     request.get({
-        uri: 'http://localhost:3500/api/v1/storage?sendCompressed=true&email=user@client.com&resource=hello.txt',
+        uri: 'http://localhost:3600/api/v1/storage?sendCompressed=true&email=user@client.com&resource=../server.js',
         headers: {
             'client_id': 'id_x',
             'password': 'bigWombat'

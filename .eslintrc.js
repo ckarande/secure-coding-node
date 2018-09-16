@@ -8,7 +8,9 @@ module.exports = {
         "semi": ["error", "always"],
         "no-console": ["off"],
         "camelcase": ["off"],
-        "no-useless-escape": ["off"]
+        "no-useless-escape": ["off"],
+        "space-before-function-paren": ["off"],
+        "no-unneeded-ternary": ["off"]
     },
     "plugins": [
         "security"

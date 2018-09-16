@@ -4,7 +4,7 @@ const url = require('url');
 const controller = require('./controller');
 
 // Get port from env properties or set it a default port if not specified
-const port = process.env.PORT || 3500;
+const port = process.env.PORT || 3600;
 
 // Create a http server, listening to requets on the port
 http.createServer(function (req, res) {

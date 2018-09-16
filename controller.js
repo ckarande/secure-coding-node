@@ -10,13 +10,13 @@ const activeClientIds = {
     'id_z': 'active'
 };
 const isActiveClientId = (clientId) => {
-    return activeClientIds[clientId] !== null;
+    return activeClientIds[clientId] ? true : false;
 };
 
 // Verify that email is in correct format
 const validEmailRegEx = new RegExp('^([a-zA-Z0-9])(([\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$');
 const isValidEmail = (email) => {
-    return email.match(validEmailRegEx) !== null;
+    return email.match(validEmailRegEx) != null;
 };
 
 // Verify that password matches
@@ -32,7 +32,7 @@ const serveRequestedResource = async (req, res) => {
         return terminate(res);
     }
     // Confine path to serve files inside the restricted folder
-    let fullPath = (path.join(__dirname, 'restricted', filename));
+    let fullPath = path.join(__dirname, 'restricted', filename);
 
     // Wrap try/catch to handle any synchronous errors and any promise reject in await functions
     try {
