@@ -6,12 +6,15 @@ module.exports = {
         "linebreak-style": ["error", "unix"],
         "quotes": ["error", "single"],
         "semi": ["error", "always"],
-        "no-console": ["off"]
+        "no-console": ["off"],
+        "camelcase": ["off"],
+        "no-useless-escape": ["off"]
     },
     "plugins": [
         "security"
     ],
     "extends": [
-        "plugin:security/recommended"
+        //"plugin:security/recommended",
+        "standard"
     ]
 };
