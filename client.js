@@ -3,10 +3,10 @@ var request = require('request');
 // Make a HTTP request to fetch a resouce
 function doGET() {
     request.get({
-        uri: 'http://localhost:3600/api/v1/storage?sendCompressed=true&email=user@client.com&resource=../server.js',
+        uri: 'http://localhost:3600/api/v1/storage?sendCompressed=true&email=user@client.com&resource=hello.txt',
         headers: {
             'client_id': 'id_x',
-            'password': 'bigWombat'
+            'token': 'bigWombat'
         }
     }, function (err, res) {
         if (err) console.log(res.body);

@@ -13,17 +13,19 @@ const isActiveClientId = (clientId) => {
     return activeClientIds[clientId] ? true : false;
 };
 
+// Verify that token matches
+const validToken = 'bigWombat';
+const isValidToken = (token) => {
+    return token === validToken;
+};
+
 // Verify that email is in correct format
 const validEmailRegEx = new RegExp('^([a-zA-Z0-9])(([\-.]|[_]+)?([a-zA-Z0-9]+))*(@){1}[a-z0-9]+[.]{1}(([a-z]{2,3})|([a-z]{2,3}[.]{1}[a-z]{2,3}))$');
 const isValidEmail = (email) => {
     return email.match(validEmailRegEx) != null;
 };
 
-// Verify that password matches
-const validPassword = 'bigWombat';
-const isValidPassword = (password) => {
-    return password === validPassword;
-};
+
 
 const serveRequestedResource = async (req, res) => {
     // Verify that user has provided a filename of the resource to retrive
@@ -85,9 +87,9 @@ exports.get = (req, res) => {
     req.params = qs.parse(req.urlParts.query);
     const email = req.params.email;
     const client_id = req.headers.client_id;
-    const password = req.headers.password;
+    const token = req.headers.token;
     // Validate the user inputs. If invalid, retun error response
-    if (!isActiveClientId(client_id) || !isValidEmail(email) || !isValidPassword(password)) {
+    if (!isActiveClientId(client_id) || !isValidEmail(email) || !isValidToken(token)) {
         return terminate(res);
     }
     // Serve requested resource the user
